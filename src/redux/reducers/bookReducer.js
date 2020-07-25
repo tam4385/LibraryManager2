@@ -1,5 +1,5 @@
 import {
-  GET_CURRENT_BOOK
+  SET_CURRENT_BOOK
 } from '../constants';
 
 const initialState = {
@@ -9,6 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_BOOK:
+      console.log('setCurrentBookreducer')
       return {
         ...state, currentBook: action.payload
       };

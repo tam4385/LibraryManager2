@@ -1,8 +1,8 @@
 import {
-  GET_CURRENT_BOOK
+  SET_CURRENT_BOOK
 } from './constants';
 
-export const getCurrentBook = (book) => async dispatch => {
-  type: GET_CURRENT_BOOK;
-  payload: book;
-};
+export const setCurrentBook = (book) => ({
+    type: SET_CURRENT_BOOK,
+    payload: book
+});

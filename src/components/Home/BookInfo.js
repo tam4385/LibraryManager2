@@ -1,13 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const BookInfo = ({ title, genre, format, releaseDate }) => {
+const BookInfo = ({ currentBook }) => {
+  console.log(currentBook)
   return (
-    <div>
-      <h2>{book.title}</h2>
-      <h4>{book.genre}</h4>
-      <h4>{book.formar}</h4>
+    <div className="container">
+      <h2>{currentBook.title}</h2>
+      <h4>{currentBook.genre}</h4>
+      <h4>{currentBook.format}</h4>
     </div>
   )
 }
 
-export default BookInfo;
+const mapStateToProps = state => ({
+  currentBook: state.book.currentBook,
+});
+
+export default connect(mapStateToProps, {})(BookInfo);

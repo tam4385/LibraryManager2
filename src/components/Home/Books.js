@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import { setCurrentBook } from '../../redux/actions';
 import data from '../../data.json';
 
-const Books = () => {
+const Books = ({setCurrentBook}) => {
+  const handleOnClick = ({book}) => {
+    console.log(book)
+    setCurrentBook(book)
+  }
+
   return (
     <div className="books">
       <div className="container">
@@ -17,8 +24,9 @@ const Books = () => {
           <th>Format</th>
         </tr>
         {data.map(book => (
+          
           <tr>
-            <td><Link to={`/books/${book.title}`}>{book.title}</Link></td>
+            <td onClick={() => handleOnClick({book})}><Link to='/books/book'>{book.title}</Link></td>
             <td>{book.author}</td>
             <td>{book.genre}</td>
             <td>{book.releaseDate}</td>
@@ -32,4 +40,4 @@ const Books = () => {
   )
 }
 
-export default Books;
+export default connect(null, { setCurrentBook })(Books);
