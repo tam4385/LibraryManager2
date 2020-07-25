@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #f5f5f5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* NAV styles */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
   display: flex;
-  flex-direction: column;
+  color: #ffffff;
+  background: rgb(50, 50, 245);
+}
+
+nav li a {
+  text-decoration: none;
+  color: #ffffff
+}
+
+nav .logo {
+  padding: 1.2rem;
+  flex: 2;
+  font-size: 1.5rem;
+  position: sticky;
+}
+
+nav .container {
+  display: flex;
+  list-style: none;
+  text-align: center;
   align-items: center;
+  align-content: center;
+}
+
+nav .container li {
+  padding: 1.3rem;
+  margin-right: 1.5rem;
+  font-size: 1.25rem;
+}
+
+nav .container li:hover {
+  color: dodgerblue;
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  height: 200px;
+}
+
+header .container {
+  flex: 1;
+  font-size: 1.2rem;
+  border-bottom: solid 1px blue;
+  padding: 1.25rem;
+  width: 800px;
+}
+
+/* BOOKS */
+
+.books {
+  display: flex;
+  align-items: center;
+  align-content: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 1.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+.books .container {
+  width: 1000px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* BOOKS TABLE */
+
+table {
+  background: #ebebeb;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
+}
+
+table, tr, td {
+  width: 100%;
+}
+
+table tr, table td {
+  border: blue 1px solid;
+  padding: 1rem;
 }

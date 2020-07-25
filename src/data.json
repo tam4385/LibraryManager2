@@ -1,0 +1,26 @@
+[
+  {
+      "title": "The Body: An Occupant's Guide",
+      "author": "Bill Bryson",
+      "genre": "Non-Fiction",
+      "releaseDate": 2019,
+      "format": "Audible",
+      "id": 1
+    },
+    {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "JK Rowling",
+      "genre": "Fantasy",
+      "releaseDate": 1997,
+      "format": "paperback",
+      "id": 2
+  },
+  {
+    "title": "Sapiens",
+    "author": "Noah Harari",
+    "genre": "Non-Fiction",
+    "releaseDate": 2014,
+    "format": "hardback",
+    "id": 3
+  }
+]
