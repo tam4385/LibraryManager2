@@ -6,8 +6,9 @@ import { setCurrentBook } from '../../redux/actions';
 import data from '../../data.json';
 
 const Books = ({setCurrentBook}) => {
+  
+  // NOTE: handle setting of current book
   const handleOnClick = ({book}) => {
-    console.log(book)
     setCurrentBook(book)
   }
 
@@ -40,4 +41,4 @@ const Books = ({setCurrentBook}) => {
   )
 }
 
-export default connect(null, { setCurrentBook })(Books);
+export default connect({ books }, { setCurrentBook })(Books);

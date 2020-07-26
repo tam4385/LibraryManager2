@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
 import Books from './Books';
 
 const Home = () => {
+
+  useEffect(() => {
+    if (!books) {
+      getBooks();
+    }
+  },[]);
+
   return (
     <div>
       <div className="container">
@@ -12,4 +20,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default connect(null, { getBooks })(Home);
