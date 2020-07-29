@@ -19,6 +19,7 @@ body {
   border-radius: 5px;
   border: 1px solid;
   width: 100%;
+  text-decoration-style: none;
 }
 
 .button-primary:hover {
@@ -33,6 +34,7 @@ body {
   border-radius: 5px;
   border: 1px solid;
   width: 100%;
+  text-decoration: none;
 }
 
 .button-secondary:hover {
@@ -140,7 +142,7 @@ table {
 
 table, tr, td {
   width: 100%;
-  
+  text-decoration: none;
 }
 
 table tr, table td {
@@ -148,6 +150,7 @@ table tr, table td {
   border-radius: 5px;
   padding: 1rem;
   margin: 1rem;
+  text-decoration: none;
 }
 
 /* Form Container */

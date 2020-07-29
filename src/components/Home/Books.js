@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { setCurrentBook } from '../../redux/actions';
-import data from '../../data.json';
 
-const Books = ({setCurrentBook}) => {
+const Books = ({ setCurrentBook, books}) => {
   
   // NOTE: handle setting of current book
   const handleOnClick = ({book}) => {
@@ -15,30 +14,35 @@ const Books = ({setCurrentBook}) => {
   return (
     <div className="books">
       <div className="container">
-      <table>
-        <tbody>
-        <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Genre</th>
-          <th>Release Date</th>
-          <th>Format</th>
-        </tr>
-        {data.map(book => (
-          
+      <Link className='button-secondary' to='/books/new_book'>Add book</Link>
+        <table>
+          <tbody>
           <tr>
-            <td onClick={() => handleOnClick({book})}><Link to='/books/book'>{book.title}</Link></td>
-            <td>{book.author}</td>
-            <td>{book.genre}</td>
-            <td>{book.releaseDate}</td>
-            <td>{book.format}</td>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+            <th>Format</th>
           </tr>
-        ))}
-        </tbody>
+          {books && books.map(book => (
+          
+            <tr>
+              <td onClick={() => handleOnClick({book})}><Link to='/books/book'>{book.title}</Link></td>
+              <td>{book.author}</td>
+              <td>{book.genre}</td>
+              <td>{book.releaseDate}</td>
+              <td>{book.format}</td>
+            </tr>
+          ))}
+          </tbody>
         </table>
       </div>
     </div>
   )
 }
 
-export default connect({ books }, { setCurrentBook })(Books);
+const mapStateToProps = () => state => ({
+  books: state.book.books
+});
+
+export default connect(mapStateToProps, { setCurrentBook })(Books);

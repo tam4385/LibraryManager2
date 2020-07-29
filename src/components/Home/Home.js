@@ -1,23 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import Books from './Books';
+import { getBooks } from '../../redux/actions';
 
-const Home = () => {
+const Home = ({ getBooks, books }) => {
+
+  const fetchData = async () => {
+    try {
+      fetch('http://localhost:5000/books')
+        .then(response => response.json())
+        .then(data => getBooks(data.data));
+    } catch (error) {
+      console.log(error)
+    } 
+  }
 
   useEffect(() => {
-    if (!books) {
-      getBooks();
-    }
-  },[]);
+    fetchData();
+  },[fetchData]);
 
   return (
     <div>
       <div className="container">
-      <Books />
+        <Books books={books}/>
       </div>
     </div>
   )
 }
 
-export default connect(null, { getBooks })(Home);
+const mapStateToProps = state => ({
+  books: state.books
+});
+
+export default connect(mapStateToProps, { getBooks } )(Home);

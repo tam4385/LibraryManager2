@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 const BookInfo = ({ currentBook }) => {
   
-  const [fieldValues, setFieldValues] = useState({
-
-  })
+  const [fieldValues, setFieldValues] = useState([
+    
+  ]);
 
   return (
     <div className="form-container">

@@ -7,10 +7,7 @@ export const setCurrentBook = (book) => ({
     payload: book
 });
 
-export const getBooks = () => ({
+export const getBooks = (books) => ({
   type: GET_BOOKS,
-  apiPackage: {
-    method: 'POST',
-    parameters: ''
-  }
+  payload: books
 });
