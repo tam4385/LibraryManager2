@@ -145,9 +145,18 @@ table, tr, td {
   text-decoration: none;
 }
 
+td:active {
+  text-decoration: none;
+}
+
+.book-links {
+  text-decoration: none;
+  color: rgb(50, 50, 245);
+  
+}
+
 table tr, table td {
-  border: blue 1px solid;
-  border-radius: 5px;
+  border-top: blue 1px solid;
   padding: 1rem;
   margin: 1rem;
   text-decoration: none;

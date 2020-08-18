@@ -1,22 +1,51 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
-const NewBook = () => {
+import { addBook } from '../../redux/actions';
+
+const NewBook = ({ addBook }) => {
 
   /* Form field values */
-  const [bookTitle, setBookTitle] = useState(null);
-  const [bookAuthor, setBookAuthor] = useState(null);
-  const [bookGenre, setBookGenre] = useState(null);
-  const [bookFormat, setBookFormat] = useState(null);
-  const [bookRelease, setBookRelease] = useState(null);
+  const [bookTitle, setBookTitle] = useState('');
+  const [bookAuthor, setBookAuthor] = useState('');
+  const [bookGenre, setBookGenre] = useState('');
+  const [bookFormat, setBookFormat] = useState('');
+  const [bookRelease, setBookRelease] = useState('');
 
   /* Handle submission of form */
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Create the new book data
+    const book = {};
+    book.title = bookTitle;
+    book.author = bookAuthor;
+    book.genre = bookGenre;
+    book.format = bookFormat;
+    book.releaseDate = bookRelease;
 
+    try {
+      console.log(book)
+      fetch('http://localhost:5000/books', {
+          method: 'post',
+          body: JSON.stringify(book),
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Credentials': 'true',
+           }
+      })
+        .then(response => response.json())
+        .then(data => console.log(data));
+    } catch (error) {
+      console.log(error)
+    } 
   };
 
   /* Check for empty fields */
   const checkFields = () => {
-
+    // Todo: validate fields
   };
 
   return (
@@ -44,7 +73,7 @@ const NewBook = () => {
           <input type="text" value={bookRelease} onChange={e => setBookRelease(e.target.value)}/>
         </div>
         <div className='form-field'>
-          <button className='button-secondary'>Update Book</button>
+          <button className='button-secondary' onClick={e => handleSubmit(e)}>Add book</button>
         </div>
       </form>
       <div>
@@ -55,4 +84,8 @@ const NewBook = () => {
   )
 };
 
-export default NewBook;
+const mapDispatchToProps = dispatch => ({
+  addBook: (book) => dispatch(addBook(book))
+});
+
+export default connect(null, mapDispatchToProps)(NewBook);

@@ -6,7 +6,7 @@ import { getBooks } from '../../redux/actions';
 
 const Home = ({ getBooks, books }) => {
 
-  const fetchData = async () => {
+  const fetchBooksData = async () => {
     try {
       fetch('http://localhost:5000/books')
         .then(response => response.json())
@@ -17,8 +17,8 @@ const Home = ({ getBooks, books }) => {
   }
 
   useEffect(() => {
-    fetchData();
-  },[fetchData]);
+    fetchBooksData();
+  },[fetchBooksData]);
 
   return (
     <div>
