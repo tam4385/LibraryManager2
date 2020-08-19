@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { addBook } from '../../redux/actions';
 
@@ -11,6 +12,8 @@ const NewBook = ({ addBook }) => {
   const [bookGenre, setBookGenre] = useState('');
   const [bookFormat, setBookFormat] = useState('');
   const [bookRelease, setBookRelease] = useState('');
+
+  const history = useHistory();
 
   /* Handle submission of form */
   const handleSubmit = async (e) => {
@@ -25,7 +28,6 @@ const NewBook = ({ addBook }) => {
     book.releaseDate = bookRelease;
 
     try {
-      console.log(book)
       fetch('http://localhost:5000/books', {
           method: 'post',
           body: JSON.stringify(book),
@@ -37,7 +39,9 @@ const NewBook = ({ addBook }) => {
            }
       })
         .then(response => response.json())
-        .then(data => console.log(data));
+        history.push('/');
+
+      
     } catch (error) {
       console.log(error)
     } 

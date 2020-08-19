@@ -26,7 +26,7 @@ const Books = ({ setCurrentBook, books}) => {
           </tr>
           {books && books.map(book => (
           
-            <tr>
+            <tr key={book.title}>
               <td onClick={() => handleOnClick({book})}><Link to='/books/book' className='book-links'>{book.title}</Link></td>
               <td>{book.author}</td>
               <td>{book.genre}</td>

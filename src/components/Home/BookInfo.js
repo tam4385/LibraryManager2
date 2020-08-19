@@ -1,11 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const BookInfo = ({ currentBook }) => {
   
   const [fieldValues, setFieldValues] = useState([
     
   ]);
+
+  // Use history for navigation
+  const history = useHistory();
+
+  // Handle click of delete button
+  const handleDelete = () => {
+    try {
+      fetch(`http://localhost:5000/books/${currentBook._id}`, {
+          method: 'delete',
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Credentials': 'true',
+           }
+      })
+        .then(response => response.json())
+        history.push('/')
+      
+    } catch (error) {
+      console.log(error)
+    } 
+  };
 
   return (
     <div className="form-container">
@@ -33,7 +57,7 @@ const BookInfo = ({ currentBook }) => {
       </form>
       <div>
         <button className='button-primary'>Back to books</button>
-        <button className='button-delete'>Delete Book</button>
+        <button className='button-delete' onClick={ handleDelete }>Delete Book</button>
       </div>
     </div>
   )
