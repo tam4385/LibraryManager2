@@ -181,7 +181,27 @@ table tr, table td {
   font-size: 1.5rem;
 }
 
-.form-field input {
+.form-field input, .form-field select {
   margin-left: 0.5rem;
   width: 20rem
 }
+
+/* About page styles */
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.about-me-info {
+  list-style-type: none;
+  margin-top: 2rem;
+}
+
+.about-me-info li {
+  margin: 0.5rem 0.75rem;
+}
+

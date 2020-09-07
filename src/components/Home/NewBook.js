@@ -51,7 +51,7 @@ const NewBook = ({ addBook }) => {
   const checkFields = () => {
     // Todo: validate fields
   };
-
+  console.log(bookGenre)
   return (
     <div className="form-container">
       <h2 className='header-2'>Add a new book to your library</h2>
@@ -66,11 +66,20 @@ const NewBook = ({ addBook }) => {
         </div>
         <div className='form-field'>
           <label htmlFor="text">Genre:</label>
-          <input type="text" value={bookGenre} onChange={e => setBookGenre(e.target.value)}/>
+          <select type="select" value={bookGenre} onChange={e => setBookGenre(e.target.value)}>
+            <option value='Select book genre'>Select Genre</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-fiction">Non-fiction</option>
+          </select>
         </div>
         <div className='form-field'>
           <label htmlFor="text">Format:</label>
-          <input type="text" value={bookFormat} onChange={e => setBookFormat(e.target.value)}/>
+          <select value={bookFormat} onChange={e => setBookFormat(e.target.value)}>
+            <option value="Select book format">Select book format</option>
+            <option value="Paperback">Paperback</option>
+            <option value="Hardback">Hardback</option>
+            <option value="Audible">Audible</option>
+          </select>
         </div>
         <div className='form-field'>
           <label htmlFor="text">Release Date:</label>
