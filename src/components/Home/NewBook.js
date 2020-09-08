@@ -47,11 +47,7 @@ const NewBook = ({ addBook }) => {
     } 
   };
 
-  /* Check for empty fields */
-  const checkFields = () => {
-    // Todo: validate fields
-  };
-  console.log(bookGenre)
+
   return (
     <div className="form-container">
       <h2 className='header-2'>Add a new book to your library</h2>

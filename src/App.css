@@ -35,6 +35,7 @@ body {
   border: 1px solid;
   width: 100%;
   text-decoration: none;
+  margin-bottom: 5px;
 }
 
 .button-secondary:hover {
@@ -60,6 +61,17 @@ body {
   margin-bottom: 2.5rem;
   font-size: 1.75rem;
   font-weight: 100;
+}
+
+/* Rows and columns */
+
+.row {
+  display: flex;
+  justify-content: space-between
+}
+
+.column {
+  display: flex;
 }
 
 /* NAV styles */
@@ -102,7 +114,7 @@ nav .container li:hover {
 
 /* HEADER */
 
-header {
+.header {
   display: flex;
   align-content: center;
   text-align: center;
@@ -110,7 +122,7 @@ header {
   height: 200px;
 }
 
-header .container {
+.header .container {
   flex: 1;
   font-size: 1.2rem;
   border-bottom: solid 1px blue;
@@ -118,7 +130,19 @@ header .container {
   width: 800px;
 }
 
+.header h2 {
+  font-weight: 100;
+}
+
 /* BOOKS */
+
+#book-search {
+  padding: 0.75rem;
+  width: 300px;
+  border: solid 1px #00b8ff;
+  border-radius: 5px;
+}
+
 
 .books {
   display: flex;

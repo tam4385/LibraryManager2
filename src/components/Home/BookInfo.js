@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 const BookInfo = ({ currentBook }) => {
   
-  const [fieldValues, setFieldValues] = useState([
+  // const [fieldValues, setFieldValues] = useState([
     
-  ]);
+  // ]);
 
   // Use history for navigation
   const history = useHistory();

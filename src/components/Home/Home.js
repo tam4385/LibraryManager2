@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Books from './Books';
@@ -14,11 +14,12 @@ const Home = ({ getBooks, books }) => {
     } catch (error) {
       console.log(error)
     } 
-  }
+  };
 
   useEffect(() => {
     fetchBooksData();
-  },[fetchBooksData]);
+    // eslint-disable-next-line
+  }, [books]);
 
   return (
     <div>
