@@ -5,11 +5,11 @@ import { useHistory } from 'react-router-dom';
 const BookInfo = ({ currentBook }) => {
 
     /* Form field values */
-    const [bookTitle, setBookTitle] = useState('');
-    const [bookAuthor, setBookAuthor] = useState('');
-    const [bookGenre, setBookGenre] = useState('');
-    const [bookFormat, setBookFormat] = useState('');
-    const [bookRelease, setBookRelease] = useState('');
+    const [bookTitle, setBookTitle] = useState(currentBook.title);
+    const [bookAuthor, setBookAuthor] = useState(currentBook.author);
+    const [bookGenre, setBookGenre] = useState(currentBook.genre);
+    const [bookFormat, setBookFormat] = useState(currentBook.format);
+    const [bookRelease, setBookRelease] = useState(currentBook.bookRelease);
 
   // Use history for navigation
   const history = useHistory();
@@ -73,19 +73,19 @@ const BookInfo = ({ currentBook }) => {
         </div>
         <div className='form-field'>
           <label htmlFor="author">Author:</label>
-          <input type="text" value={currentBook.author} onChange={ e => setBookAuthor(e.target.value) } />
+          <input type="text" value={ bookAuthor } onChange={ e => setBookAuthor(e.target.value) } />
         </div>
         <div className='form-field'>
           <label htmlFor="text">Genre:</label>
-          <input type="text" value={currentBook.genre} onChange={ e => setBookGenre(e.target.value) } />
+          <input type="text" value={ bookGenre } onChange={ e => setBookGenre(e.target.value) } />
         </div>
         <div className='form-field'>
           <label htmlFor="text">Format:</label>
-          <input type="text" value={currentBook.format} onChange={ e => setBookFormat(e.target.value) } />
+          <input type="text" value={ bookFormat } onChange={ e => setBookFormat(e.target.value) } />
         </div>
         <div className='form-field'>
           <label htmlFor="text">Release Date:</label>
-          <input type="text" value={currentBook.releaseDate} onChange={ e => setBookRelease(e.target.value) } />
+          <input type="text" value={ bookRelease } onChange={ e => setBookRelease(e.target.value) } />
         </div>
         <div className='form-field'>
           <button className='button-secondary' onClick={ e => handleUpdate(e) } >Update Book</button>
