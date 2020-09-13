@@ -38,7 +38,7 @@ const NewBook = ({ addBook }) => {
             'Access-Control-Allow-Credentials': 'true',
            }
       })
-        .then(response => response.json())
+        .then(response => response.json());
         history.push('/');
 
       
@@ -46,7 +46,6 @@ const NewBook = ({ addBook }) => {
       console.log(error)
     } 
   };
-
 
   return (
     <div className="form-container">

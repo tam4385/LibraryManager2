@@ -23,10 +23,10 @@ const App = () => {
         <Main />
         </div>
         <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route exact path='/about' component={About}/>
-          <Route exact path='/books/book' component={BookInfo}/>
-          <Route exact path='/books/new_book' component={NewBook} />
+          <Route exact path='/' component={ Home }/>
+          <Route exact path='/about' component={ About }/>
+          <Route exact path='/books/new_book' component={ NewBook } />
+          <Route exact path='/books/:bookId' component={ BookInfo }/>
         </Switch>
       </Router>
     </Provider>

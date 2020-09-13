@@ -14,7 +14,7 @@ const Books = ({ setCurrentBook, books}) => {
   const handleOnClick = ({book}) => {
     setCurrentBook(book)
   };
-
+  console.log(books)
   /* Function to filter results */
   const filterResults = () => {
     return books.forEach(book => {
@@ -28,13 +28,12 @@ const Books = ({ setCurrentBook, books}) => {
       })
     });
   };
-
   /* Take books and create rows for table */
   const insertRows = (bookList = books) => {
     return bookList && bookList.map(book => (
           
       <tr key={book.title}>
-        <td onClick={() => handleOnClick({book})}><Link to='/books/book' className='book-links'>{book.title}</Link></td>
+        <td onClick={() => handleOnClick({book})}><Link to={`books/${book._id}`} className='book-links'>{book.title}</Link></td>
         <td>{book.author}</td>
         <td>{book.genre}</td>
         <td>{book.releaseDate}</td>
