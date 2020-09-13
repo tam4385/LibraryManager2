@@ -11,7 +11,7 @@ import store from './store';
 import Home from './components/Home/Home';
 import About from './components/About'
 import Main from './components/Main.js/Main';
-import BookInfo from './components/Home/BookInfo';
+import UpdateBook from './components/Home/UpdateBook';
 import NewBook from './components/Home/NewBook';
 
 
@@ -26,7 +26,7 @@ const App = () => {
           <Route exact path='/' component={ Home }/>
           <Route exact path='/about' component={ About }/>
           <Route exact path='/books/new_book' component={ NewBook } />
-          <Route exact path='/books/:bookId' component={ BookInfo }/>
+          <Route exact path='/books/:bookId' component={ UpdateBook }/>
         </Switch>
       </Router>
     </Provider>

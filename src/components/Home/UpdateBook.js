@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-const BookInfo = ({ currentBook }) => {
+const UpdateBook = ({ currentBook }) => {
 
     /* Form field values */
     const [bookTitle, setBookTitle] = useState(currentBook.title);
@@ -65,7 +65,7 @@ const BookInfo = ({ currentBook }) => {
 
   return (
     <div className="form-container">
-      <h2 className='header-2'>Update Book: {currentBook.title}</h2>
+      <h2 className='header-2'>Update Book: { currentBook.title }</h2>
       <form>
         <div className='form-field'>
           <label htmlFor="title">Title:</label>
@@ -77,7 +77,7 @@ const BookInfo = ({ currentBook }) => {
         </div>
         <div className='form-field'>
           <label htmlFor="text">Genre:</label>
-          <select type="select" value={bookGenre} onChange={e => setBookGenre(e.target.value)}>
+          <select type="select" value={ bookGenre } onChange={e => setBookGenre(e.target.value)}>
             <option value='Select book genre'>Select Genre</option>
             <option value="Fiction">Fiction</option>
             <option value="Non-fiction">Non-fiction</option>
@@ -85,7 +85,7 @@ const BookInfo = ({ currentBook }) => {
         </div>
         <div className='form-field'>
           <label htmlFor="text">Format:</label>
-          <select value={bookFormat} onChange={e => setBookFormat(e.target.value)}>
+          <select value={ bookFormat } onChange={e => setBookFormat(e.target.value)}>
             <option value="Select book format">Select book format</option>
             <option value="Paperback">Paperback</option>
             <option value="Hardback">Hardback</option>
@@ -112,4 +112,4 @@ const mapStateToProps = state => ({
   currentBook: state.book.currentBook,
 });
 
-export default connect(mapStateToProps, {})(BookInfo);
+export default connect(mapStateToProps, {})(UpdateBook);
