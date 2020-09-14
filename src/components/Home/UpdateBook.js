@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 const UpdateBook = ({ currentBook }) => {
 
-    /* Form field values */
-    const [bookTitle, setBookTitle] = useState(currentBook.title);
-    const [bookAuthor, setBookAuthor] = useState(currentBook.author);
-    const [bookGenre, setBookGenre] = useState(currentBook.genre);
-    const [bookFormat, setBookFormat] = useState(currentBook.format);
-    const [bookRelease, setBookRelease] = useState(currentBook.bookRelease);
+  /* Form field values */
+  const [bookTitle, setBookTitle] = useState(currentBook.title);
+  const [bookAuthor, setBookAuthor] = useState(currentBook.author);
+  const [bookGenre, setBookGenre] = useState(currentBook.genre);
+  const [bookFormat, setBookFormat] = useState(currentBook.format);
+  const [bookRelease, setBookRelease] = useState(currentBook.bookRelease);
 
   // Use history for navigation
   const history = useHistory();

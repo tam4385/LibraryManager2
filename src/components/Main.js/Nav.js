@@ -8,7 +8,7 @@ const Nav = () => {
     <nav>
       <div className="logo">
         <FontAwesomeIcon icon={faCoffee} />
-         LibraryManager
+        LibraryManager
       </div>
       <ul className='container'>
         <li><Link to='/'>Home</Link></li>

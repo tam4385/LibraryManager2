@@ -5,16 +5,18 @@ import { connect } from 'react-redux';
 import { setCurrentBook } from '../../redux/actions';
 
 /* COMPONENT */
-const Books = ({ setCurrentBook, books}) => {
+const Books = ({ setCurrentBook, books, loading }) => {
   
   const [searchInput, setSearchInput] = useState('');
   const searchResults = [];
+  const [currentPage, setCurrentPage] = useState(1);
+  const [booksPerPage, setBooksPerPage] = useState(12);
 
   /* handle setting of current book */
   const handleOnClick = ({book}) => {
     setCurrentBook(book)
   };
-  console.log(books)
+
   /* Function to filter results */
   const filterResults = () => {
     return books.forEach(book => {
@@ -28,6 +30,20 @@ const Books = ({ setCurrentBook, books}) => {
       })
     });
   };
+
+  // Check if there is search Input
+  if (searchInput) filterResults();
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
+
+  // Pagination
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  const currentBooks = books && searchInput 
+    ? searchResults.slice(indexOfFirstBook, indexOfLastBook) 
+    : books.slice(indexOfFirstBook, indexOfLastBook);
+
   /* Take books and create rows for table */
   const insertRows = (bookList = books) => {
     return bookList && bookList.map(book => (
@@ -41,8 +57,6 @@ const Books = ({ setCurrentBook, books}) => {
       </tr>
     ))
   };
-
-  if (searchInput) filterResults();
 
   return (
     <div className="books">
@@ -66,7 +80,7 @@ const Books = ({ setCurrentBook, books}) => {
             <th>Release Date</th>
             <th>Format</th>
           </tr>
-          { searchInput ? insertRows(searchResults) : insertRows() }
+          { searchInput ? insertRows(currentBooks) : insertRows(currentBooks) }
           </tbody>
         </table>
       </div>
