@@ -12,7 +12,7 @@ const Books = ({ setCurrentBook, books, loading }) => {
   const [searchInput, setSearchInput] = useState('');
   const searchResults = [];
   const [currentPage, setCurrentPage] = useState(1);
-  const [booksPerPage, setBooksPerPage] = useState(10);
+  const [booksPerPage] = useState(10);
 
   /* handle setting of current book */
   const handleOnClick = ({book}) => {
