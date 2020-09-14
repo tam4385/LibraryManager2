@@ -46,8 +46,7 @@ const Books = ({ setCurrentBook, books, loading }) => {
   const currentSearchResults = searchResults && searchResults.slice(indexOfFirstBook, indexOfLastBook);
 
   // Change page
-  const paginate = (e, pageNumber) => {
-    e.preventDefault();
+  const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
