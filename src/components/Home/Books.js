@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 
 import { setCurrentBook } from '../../redux/actions';
 
+import Pagination from '../Pagination';
+
 /* COMPONENT */
 const Books = ({ setCurrentBook, books, loading }) => {
   
   const [searchInput, setSearchInput] = useState('');
   const searchResults = [];
   const [currentPage, setCurrentPage] = useState(1);
-  const [booksPerPage, setBooksPerPage] = useState(12);
+  const [booksPerPage, setBooksPerPage] = useState(10);
 
   /* handle setting of current book */
   const handleOnClick = ({book}) => {
@@ -40,12 +42,18 @@ const Books = ({ setCurrentBook, books, loading }) => {
   // Pagination
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = books && searchInput 
-    ? searchResults.slice(indexOfFirstBook, indexOfLastBook) 
-    : books.slice(indexOfFirstBook, indexOfLastBook);
+  const currentBooks = books && books.slice(indexOfFirstBook, indexOfLastBook);
+  const currentSearchResults = searchResults && searchResults.slice(indexOfFirstBook, indexOfLastBook);
+
+  // Change page
+  const paginate = (e, pageNumber) => {
+    e.preventDefault();
+    setCurrentPage(pageNumber);
+  };
 
   /* Take books and create rows for table */
   const insertRows = (bookList = books) => {
+
     return bookList && bookList.map(book => (
           
       <tr key={book.title}>
@@ -80,9 +88,14 @@ const Books = ({ setCurrentBook, books, loading }) => {
             <th>Release Date</th>
             <th>Format</th>
           </tr>
-          { searchInput ? insertRows(currentBooks) : insertRows(currentBooks) }
+          { searchInput ? insertRows(currentSearchResults) : insertRows(currentBooks) }
           </tbody>
         </table>
+        <Pagination 
+          booksPerPage={booksPerPage} 
+          totalBooks={ books && !searchResults.length ? books.length : searchResults.length}
+          paginate={paginate}
+          />
       </div>
     </div>
   )

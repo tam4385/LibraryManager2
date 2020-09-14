@@ -186,6 +186,23 @@ table tr, table td {
   text-decoration: none;
 }
 
+.pagination {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.pagination ul {
+  display: flex;
+  list-style: none;
+}
+
+.page-item a {
+  margin-left: 5px;
+}
+
 /* Form Container */
 
 .form-container {
