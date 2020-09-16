@@ -12,6 +12,9 @@ const NewBook = ({ addBook }) => {
   const [bookGenre, setBookGenre] = useState('');
   const [bookFormat, setBookFormat] = useState('');
   const [bookRelease, setBookRelease] = useState('');
+  const [readStatus, setReadStatus] = useState('');
+  const [bookRating, setBookRating] = useState('');
+  const [bookComments, setBookComments] = useState('');
 
   const history = useHistory();
 
@@ -25,6 +28,9 @@ const NewBook = ({ addBook }) => {
     book.author = bookAuthor;
     book.genre = bookGenre;
     book.format = bookFormat;
+    book.read = readStatus;
+    book.rating = bookRating;
+    book.comments = bookComments;
     book.releaseDate = bookRelease;
 
     try {
@@ -79,6 +85,30 @@ const NewBook = ({ addBook }) => {
         <div className='form-field'>
           <label htmlFor="text">Release Date:</label>
           <input type="text" value={bookRelease} onChange={e => setBookRelease(e.target.value)}/>
+        </div>
+        <div className='form-field'>
+          <label htmlFor="text">Read Status:</label>
+          <select value={readStatus} onChange={e => setReadStatus(e.target.value)}>
+            <option value="Select book format">Select Read Status</option>
+            <option value="Paperback">Read</option>
+            <option value="Hardback">Reading</option>
+            <option value="Audible">Not read</option>
+          </select>
+        </div>
+        <div className='form-field'>
+          <label htmlFor="text">Rating:</label>
+          <select value={bookRating} onChange={e => setBookRating(e.target.value)}>
+            <option value="Select book format">Select Rating</option>
+            <option value="Paperback">1 Star</option>
+            <option value="Hardback">2 Stars</option>
+            <option value="Audible">3 Stars</option>
+            <option value="Audible">4 Stars</option>
+            <option value="Audible">5 Stars</option>
+          </select>
+        </div>
+        <div className='form-field'>
+          <label htmlFor="text">Comments:</label>
+          <textarea className='text-area' type="text-area" value={bookComments} onChange={e => setBookComments(e.target.value)}/>
         </div>
         <div className='form-field'>
           <button className='button-secondary' onClick={e => handleSubmit(e)}>Add book</button>

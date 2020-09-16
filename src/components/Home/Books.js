@@ -94,6 +94,7 @@ const Books = ({ setCurrentBook, books, loading }) => {
           booksPerPage={booksPerPage} 
           totalBooks={ books && !searchResults.length ? books.length : searchResults.length}
           paginate={paginate}
+          currentPage={currentPage}
           />
       </div>
     </div>
